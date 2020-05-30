@@ -1,0 +1,52 @@
+<h1 style="text-align: center;">Employes Profile</h1>
+<form action="/logout" method="POST">
+    <input type="submit" value="logout" style="background-color: grey;border-radius:50%;margin:auto"></form>
+<h3 style="color: rgb(114, 109, 109);text-align: center">If You are Joined a Company then Leave that company to join
+    Other company</h3>
+<div style="text-align: center;">
+    <button>
+        <h3><a style="color: rgb(88, 88, 88);" href='/addCompany'>Create Your Own Comapany</a></h3>
+    </button></div>
+<ul>
+    {{#each info}}
+    <li style="list-style: none;">
+        <h3><em>Name</em> : <span>{{this.name}}</span></h3>
+        <h3><em>Email Id</em> : <span>{{this.email}}</span></h3>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+    </li>
+    {{/each}}
+    {{#if len}}
+    {{#each cur_company}}
+    <h3>Current Compnay Information</h3>
+    <li style="list-style: none;">
+        <h3><em>Name</em> : <span style="color: rgb(158, 163, 152);">{{this.companyName}}</span></h3>
+        <h3><em>Joined Date</em> : <span style="color: rgb(158, 163, 152);">{{this.joinedAt}}</span></h3>
+        <form action="/leave" method="POST">
+            <input type="submit" value="Leave Company"></form>
+        <hr>
+        <hr>
+    </li>
+    {{/each}}
+    {{else}}
+    <h1>Join a company Now <button><a style="color: grey;" href='/companys'>Click here</a></button>
+    </h1>
+    {{/if}}
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <h1>Your History</h1>
+    {{#each history}}
+    <li style="list-style: none;">
+        <h3><em>Name</em> : <span style="color: rgb(158, 163, 152);">{{this.companyName}}</span></h3>
+        <h3><em>Joined Date</em> : <span style="color: rgb(158, 163, 152);">{{this.joinedAt}}</span></h3>
+        <h3><em>Leaved Date</em> : <span style="color: rgb(158, 163, 152);">{{this.leavedAt}}</span></h3>
+        <hr>
+    </li>
+    {{/each}}
+
+</ul>
